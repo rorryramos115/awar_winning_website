@@ -1,5 +1,46 @@
+'use client';
+
+import { useRef, useState } from "react"
 import { TiLocationArrow } from "react-icons/ti"
 
+
+const BentoTilt = ({ children, className = ''}) => {
+  const [transfromStyle, setTransfromStyle] = useState('');
+  const itemRef = useRef();
+
+  const handleMouseMove = (e) => {
+    if(!itemRef.current) return;
+
+    const { left, top, width, height } = itemRef.current.getBoundingClientRect();
+
+    const relativeX = (e.clientX - left) / width;
+    const relativeY = (e.clientY - top) / height;
+
+    const tiltX = (relativeX - 0.5) * 10;
+    const tiltY = (relativeY - 0.5) * -10;
+
+    const newTransform = `perspective(700px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(.95, .95, .95)`;
+
+    setTransfromStyle(newTransform);
+  }
+
+  const handleMouseLeave = () => {
+    setTransfromStyle('');
+  }
+
+
+  return (
+    <div 
+    className={className}
+    ref={itemRef}
+    onMouseMove={handleMouseMove}
+    onMouseLeave={handleMouseLeave}
+    style={{transform: transfromStyle}}>
+
+      {children}
+    </div>
+  )
+}
 
 const BentoCard = ({ src, title, description}) => {
   return (
@@ -41,48 +82,48 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]">
+        <BentoTilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]">
           <BentoCard 
             src="video/feature-1.mp4"
             title={<>radi<b>n</b>t</>}
             description="A cross-platform metagame app, turning your activities across Web2 and Web3 games into a rewarding adventure."
           />
-        </div>
+        </BentoTilt>
 
-        <div className="grid h-[135vh] w-full grid-cols-1 md:grid-cols-2 grid-rows-5 sm:grid-rows-3 gap-7 border">
-          <div className="bento-tilt_1 border-hsla  row-span-2 md:row-span-2 col-span-1">
+        <div className="grid h-[135vh] w-full grid-cols-1 md:grid-cols-2 grid-rows-3 sm:grid-rows-3 gap-7 border">
+          <BentoTilt className="bento-tilt_1 border-hsla  row-span-2 md:row-span-2 col-span-1">
             <BentoCard 
               src="video/feature-2.mp4"
               title={<>zig<b>m</b>a</>}
               description="An anime & gaming-inspired NFT collection — the IP primed for expansion"
             />
-          </div>
+          </BentoTilt>
 
-          <div className="bento-tilt_1 border-hsla ms-32 md:ms-0  md:row-span-1 row-span-2 col-span-1">
+          <BentoTilt className="bento-tilt_1 border-hsla ms-32 md:ms-0  md:row-span-1 row-span-2 col-span-1">
             <BentoCard 
               src="video/feature-3.mp4"
               title={<>n<b>e</b>xus</>}
               description="A gamified social hub, adding a new dimension of play to Web3 communities."
             />
-          </div>
+          </BentoTilt>
 
-          <div className="bento-tilt_1 border-hsla me-14 md:me-0  md:row-span-1 row-span-3 col-span-1">
+          <BentoTilt className="bento-tilt_1 border-hsla me-14 md:me-0  md:row-span-1 row-span-3 col-span-1">
             <BentoCard 
               src="video/feature-4.mp4"
               title={<>o<b>m</b>ega</>}
               description="A gamified social hub, adding a new dimension of play to social interaction for Web3 communities."
             />
-          </div>
+          </BentoTilt>
 
-          <div className="bento-tilt_2 border-hsla">
+          <BentoTilt className="bento-tilt_2 border-hsla">
             <div className="flex size-full flex-col justify-between bg-violet-500 p-5">
               <h1 className="bento-title special-font max-w-100 text-black">M<b>o</b>re co<b>m</b>ing s<b>o</b>on!</h1>
 
               <TiLocationArrow className="m-5 scale-[5] self-end" />
             </div>
-          </div>
+          </BentoTilt>
 
-          <div className="bento-tilt_2 border-hsla">
+          <BentoTilt className="bento-tilt_2 border-hsla">
             <video
              src="video/feature-5.mp4"
              loop
@@ -90,7 +131,7 @@ const Features = () => {
              autoPlay
              className="size-full object-cover object-center"
             />
-          </div>
+          </BentoTilt>
         </div>
 
       </div>
