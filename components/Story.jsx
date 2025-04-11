@@ -64,7 +64,7 @@ const Story = () => {
             <div className="relative size-full">
                 <AnimetedTitle
                    title="The st<b>o</b>ry of <br/> a hidden realm"
-                   className="mt-5 pointer-events-none mix-blend-difference relative z-10 !text-blue-100"
+                   className="mt-5 pointer-events-none text-8xl mix-blend-difference relative z-10 !text-blue-100"
                 />
 
                 <div className="story-img-container">
@@ -80,7 +80,7 @@ const Story = () => {
                                 alt="Entrance"
                                 width='100%'
                                 height='100%'
-                                className="objeect-contain"
+                                className="object-contain"
                             />
                         </div>
                     </div>

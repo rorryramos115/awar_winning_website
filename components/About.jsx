@@ -33,7 +33,7 @@ const About = () => {
   return (
     <div 
         id="about" 
-        className="min-h-screen w-screen">
+        className="min-h-screen w-screen bg-amber-900">
 
         <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
             <h2 className="font-general text-sm uppercase md:text-[10px]">
@@ -42,7 +42,7 @@ const About = () => {
 
             <AnimetedTitle 
                 title="Disc<b>o</b>ver the world's <br /> l<b>a</b>rgest shared Adventure"
-                className="mt-5 text-black text-center" />
+                className="mt-5 text-black text-center text-sm bg-green-900" />
 
             <div className="about-subtext">
                 <p>The Game of Games begins-your life, now an epic MMORPG</p>
@@ -58,7 +58,7 @@ const About = () => {
                     alt="Backgound"
                     width="100%"
                     height="100%"
-                    className="absolute left-0 top-0 object-cover"
+                    className="absolute left-0 top-0 object-cover rounded-4xl"
                  />
             </div>
         </div>

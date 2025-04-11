@@ -38,7 +38,7 @@ const AnimetedTitle = ({ title, className }) => {
   return (
     <div ref={containerRef} className={`animated-title ${className}`}>
         {title.split('<br />').map((line, index) => (
-          <div key={index} className="flex-center mx-w-full flex-wrap gap-2 px-10 md:gap-3">
+          <div key={index} className="flex-center max-w-full text-6xl tracking-tight flex-wrap gap-2 px-10 md:gap-3">
             {line.split(' ').map((word, wordIndex) => (
               <span
               key={wordIndex}
