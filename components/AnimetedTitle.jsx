@@ -1,10 +1,12 @@
+'use client';
+
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AnimetedTitle = ({ title, containerClass }) => {
+const AnimetedTitle = ({ title, className }) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -34,7 +36,7 @@ const AnimetedTitle = ({ title, containerClass }) => {
   }, []);
 
   return (
-    <div ref={containerRef} className={`animated-title ${containerClass}`}>
+    <div ref={containerRef} className={`animated-title ${className}`}>
         {title.split('<br />').map((line, index) => (
           <div key={index} className="flex-center mx-w-full flex-wrap gap-2 px-10 md:gap-3">
             {line.split(' ').map((word, wordIndex) => (
