@@ -1,12 +1,13 @@
 'use client';
 
+import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import clsx from "clsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AnimetedTitle = ({ title, className }) => {
+const AnimatedTitle = ({ title, containerClass }) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -21,8 +22,7 @@ const AnimetedTitle = ({ title, className }) => {
       });
 
       titleAnimation.to(
-        ".animated-word",
-        {
+        ".animated-word",{
           opacity: 1,
           transform: "translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg)",
           ease: "power2.inOut",
@@ -36,20 +36,23 @@ const AnimetedTitle = ({ title, className }) => {
   }, []);
 
   return (
-    <div ref={containerRef} className={`animated-title ${className}`}>
-        {title.split('<br />').map((line, index) => (
-          <div key={index} className="flex-center max-w-full text-6xl tracking-tight flex-wrap gap-2 px-10 md:gap-3">
-            {line.split(' ').map((word, wordIndex) => (
-              <span
-              key={wordIndex}
+    <div ref={containerRef} className={clsx("animated-title", containerClass)}>
+      {title.split("<br />").map((line, index) => (
+        <div
+          key={index}
+          className="flex-center max-w-full zentry-font flex-wrap gap-2 px-10 md:gap-3"
+        >
+          {line.split(" ").map((word, idx) => (
+            <span
+              key={idx}
               className="animated-word"
-              dangerouslySetInnerHTML={{ __html: word}}
-               />
-            ))}
-          </div>
-        ))}
-   </div>
-  )
-}
+              dangerouslySetInnerHTML={{ __html: word }}
+            />
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+};
 
-export default AnimetedTitle
+export default AnimatedTitle;

@@ -7,6 +7,33 @@ body {
   font-family: "General Sans", sans-serif;
 }
 
+@layer base {
+  @font-face {
+    font-family: "circular-web";
+    src: url("/fonts/circularweb-book.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "general";
+    src: url("/fonts/general.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "robert-medium";
+    src: url("/fonts/robert-medium.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "robert-regular";
+    src: url("/fonts/robert-regular.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "zentry";
+    src: url("/fonts/zentry-regular.woff2") format("woff2");
+  }
+}
+
 @layer utilities {
     /* need to fix */
   .border-hsla {
@@ -32,15 +59,30 @@ body {
   .mask-clip-path {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
+
+  .mask-clip-path1 {
+    clip-path: polygon(25% 0%, 90% 0, 79% 100%, 0% 100%);
+  }
+
   
 
   /* need to fix */
-  .special-font b {
+  .special-font {
+    font-family: "zentry";
+    font-feature-settings: "ss01" on;
+  }
+  .zentry-font{
+    font-family: "zentry";
+    font-feature-settings: "ss01" on;
+  }
+
+  .general-font {
+    font-family: "general";
     font-feature-settings: "ss01" on;
   }
 
   .hero-heading {
-    @apply uppercase font-black text-5xl sm:right-10 sm:text-6xl md:text-7xl lg:text-8xl;
+    @apply uppercase font-black text-7xl sm:right-10 sm:text-8xl md:text-9xl lg:text-[12rem];
   }
 
   .about-subtext {
@@ -48,7 +90,7 @@ body {
   }
 
   .about-image {
-    @apply absolute left-1/2 top-0 z-20 h-[60vh] w-96 origin-center -translate-x-1/2 overflow-hidden rounded-3xl md:w-[30vw];
+    @apply absolute left-1/2 top-0 z-20 h-[60vh] w-75 origin-center -translate-x-1/2 overflow-hidden rounded-md;
   }
 
   .animated-title {
