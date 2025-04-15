@@ -4,6 +4,7 @@ import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Story from "@/components/Story";
+import Footer from "@/components/Footer";
 
 const page = () => {
   return (
@@ -14,6 +15,7 @@ const page = () => {
       <Features />
       <Story />
       <Contact />
+      <Footer />
     </main>
   )
 }

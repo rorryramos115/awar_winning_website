@@ -65,7 +65,7 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
         loop
         muted
         autoPlay
-        className="absolute left-0 top-0 size-full object-cover object-center"
+        className="absolute left-0 top-0 border-hsla size-full object-cover object-center"
       />
       <div className="relative z-10 flex size-full flex-col justify-between p-5 text-blue-50">
         <div>
@@ -128,7 +128,7 @@ const Features = () => (
       </BentoTilt>
 
       <div className="grid h-[135vh] w-full grid-cols-2 grid-rows-3 gap-7">
-        <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
+        <BentoTilt className="bento-tilt_1  row-span-1 md:col-span-1 md:row-span-2">
           <BentoCard
             src="video/feature-2.mp4"
             title={
@@ -175,6 +175,16 @@ const Features = () => (
 
             <TiLocationArrow className="m-5 scale-[5] self-end" />
           </div>
+        </BentoTilt>
+
+        <BentoTilt className="bento-tilt_2">
+          <video
+            src="video/feature-5.mp4"
+            loop
+            muted
+            autoPlay
+            className="size-full object-cover object-center"
+          />
         </BentoTilt>
 
       </div>
